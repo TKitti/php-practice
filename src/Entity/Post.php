@@ -26,6 +26,11 @@ class Post
      */
     private $content;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $score = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Post
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(int $score): self
+    {
+        $this->score = $score;
 
         return $this;
     }

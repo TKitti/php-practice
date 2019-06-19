@@ -12,7 +12,7 @@ class DefaultController extends AbstractController {
      * @Route("/", name="homepage", methods={"GET"})
      */
     public function getHomepage() {
-      return $this->render('index.html.twig', []);
+      return $this->render('homepage.html.twig', []);
   }
 
 

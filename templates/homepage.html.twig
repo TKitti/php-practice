@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <h1>Reddit</h1>
+  <h4>Create your own post right now!</h4>
+
+  <form action="/" method="get">
+    <label for="username">Who are you?</label>
+    <br>
+    <input type="text" name="username" id="username">
+    <br>
+    <label for="content">What do you want to share?</label>
+    <br>
+    <textarea type="text" name="content" id="content"></textarea>
+    <br>
+    <button type="submit">Save</button>
+  </form>
+
+{% endblock %}

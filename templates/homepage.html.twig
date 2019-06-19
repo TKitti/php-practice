@@ -5,7 +5,7 @@
   <h1>Reddit</h1>
   <h4>Create your own post right now!</h4>
 
-  <form action="/" method="post">
+  <form action="/" method="post" style="margin:30px;"">
     <label for="username">Who are you?</label>
     <br>
     <input type="text" name="username" id="username">
@@ -14,7 +14,21 @@
     <br>
     <textarea type="text" name="content" id="content"></textarea>
     <br>
-    <button type="submit">Save</button>
+    <button type="submit">let's see my post live</button>
   </form>
+
+
+  <table cellpadding="10">
+    {% for onePost in posts %}
+      <tr>
+        <td><button type="submit">i like it! ⬆</button></td>
+        <td>{{ onePost.score }}</td>
+        <td><button type="submit">this post is lame... ⬇</button></td>
+        <td>{{ onePost.content }}</td>
+        <td>created by: {{ onePost.username }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
 
 {% endblock %}

@@ -10,12 +10,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController {
+    private $postRepository;
+
+    public function __construct(PostRepository $postRepository) {
+      $this->postRepository = $postRepository;
+    }
 
   /**
      * @Route("/", name="homepage", methods={"GET"})
      */
     public function getHomepage() {
-      return $this->render('homepage.html.twig', []);
+      $allPosts = $this->postRepository->findAll();
+
+      return $this->render('homepage.html.twig', [
+        'posts' => $allPosts
+      ]);
   }
 
 
@@ -33,6 +42,9 @@ class DefaultController extends AbstractController {
 
       return new Response('', 204);
   }
+
+
+
 
 
 
